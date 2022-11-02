@@ -20,7 +20,7 @@ func main() {
 }
 
 func render(w http.ResponseWriter, t string) {
-
+	//templates
 	partials := []string{
 		"./cmd/web/templates/base.layout.gohtml",
 		"./cmd/web/templates/header.partial.gohtml",
@@ -28,6 +28,8 @@ func render(w http.ResponseWriter, t string) {
 	}
 
 	var templateSlice []string
+
+	// adding t into the templates that you want to render
 	templateSlice = append(templateSlice, fmt.Sprintf("./cmd/web/templates/%s", t))
 
 	for _, x := range partials {
