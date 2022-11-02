@@ -50,20 +50,6 @@ func main() {
 	}
 }
 
-func openDB(dsn string) (*sql.DB, error) {
-	db, err := sql.Open("pgx", dsn)
-	if err != nil {
-		return nil, err
-	}
-
-	err = db.Ping()
-	if err != nil {
-		return nil, err
-	}
-
-	return db, nil
-}
-
 func connectToDB() *sql.DB {
 	dsn := os.Getenv("DSN")
 
@@ -84,4 +70,18 @@ func connectToDB() *sql.DB {
 		log.Println("Backing off for two seconds...")
 		time.Sleep(2 * time.Second)
 	}
+}
+
+func openDB(dsn string) (*sql.DB, error) {
+	db, err := sql.Open("pgx", dsn)
+	if err != nil {
+		return nil, err
+	}
+
+	err = db.Ping()
+	if err != nil {
+		return nil, err
+	}
+
+	return db, nil
 }
