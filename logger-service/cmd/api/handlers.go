@@ -31,10 +31,10 @@ func (app *Config) WriteLog(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resp := jsonResponse{
+	resp := toolbox.JSONResponse{
 		Error: false,
 		Message: "logged",
 	}
 
-	toolbox.JSONResponse(w, http.StatusAccepted, resp)
+	tools.WriteJSON(w, http.StatusAccepted, resp)
 }
