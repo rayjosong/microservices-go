@@ -38,3 +38,10 @@ func (app *Config) WriteLog(w http.ResponseWriter, r *http.Request) {
 
 	tools.WriteJSON(w, http.StatusAccepted, resp)
 }
+
+// func (app *Config) ReadLog(w http.ResponseWriter, r *http.Request) {
+// 	var tools toolbox.Tools
+// 	logs, _ := app.Models.LogEntry.All()
+
+// 	tools.WriteJSON(w, http.StatusAccepted, logs)
+// }
